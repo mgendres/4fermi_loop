@@ -1,0 +1,36 @@
+This code simulates a two-dimensional four-component Fermi gas using a loop-updating algorithm described in:
+
+https://arxiv.org/abs/1204.6182
+https://arxiv.org/abs/1210.3104
+https://arxiv.org/abs/1302.6694
+
+Simulation parameters are hard-coded, and may be set in:
+
+params.h
+
+To compile run:
+
+./make.sh
+
+
+====DEBUGGING AND MEMORY USE====
+
+A useful tool for detecting memory leaks/use and profiling is valgrind:
+
+http://valgrind.org/
+
+The following tools are included:
+
+1) To profile memory use, run:
+
+valgrind --tool=massif ./a.out
+
+2) To detect memory leaks, access of unallocated memory locations, etc.,, run:
+
+valgrind --leak-check=yes ./a.out
+
+3) Profiling can be done with
+
+valgrind --tool=callgrind ./a.out
+callgrind_annotate [options] callgrind.out.<pid>
+
